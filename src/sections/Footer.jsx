@@ -1,0 +1,87 @@
+
+import {motion} from "framer-motion"
+
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+
+const socials = [
+  {
+    Icon: FaLinkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/sandip-sah-turha-848773358/",
+  },
+  {
+    Icon: FaGithub,
+    label: "GitHub",
+    href: "https://github.com/12345sandipsah",
+  },
+  { Icon: FaTwitter, label: "X", href: "https://x.com/SandipSah179072" },
+];
+
+const glowVariants = {
+  initial: { scale: 1, y: 0, filter: "drop-shadow(0 0 0 rgb(0,0,0,0))" },
+  hover: {
+    scale: 1.2,
+    y: -3,
+    filter: "drop-shadow(0 0 8px rgb(13,88,204,0.9))",
+    transition: { type: "spring", stiffness: 300, damping: 15 },
+  },
+  tap: { scale: 0.95, y: 0, transition: { duration: 0.08 } },
+};
+
+export default function Footer(){
+  return (
+     <footer id="footer" className="relative overflow-hidden bg-black">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(_55%_60%_at_70%_35%,rgba(13,88,202,0.35),transparent_70%)]"/>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(_50%_55%_at_30%_70%,rgba(16,185,129,0.30),transparent_70%)]"/>
+
+
+      <motion.div  className="relative z-10 px-4 sm:px-8 lg:px-10 py-16 md:py-20 flex flex-col items-center text-center space-y-6" 
+      initial={{opacity:0,y:30}}
+      whileInView={{opacity:1,y:0}}
+      transition={{duration:0.8}}
+
+      >
+        <h1 className="font-semibold leading-none text-white text-center select-none" 
+        style={{
+          fontSize:"clamp(3rem,5vw,14rem)",
+          letterSpacing:"0.02rem",
+          lineHeight:0.9,
+          padding:"0,3vw",
+          whiteSpace:"nowrap",
+          textShadow:"0 2px 18px rgba(0,0,0,0.45)"
+        }}>
+          Sandip Sah Turha
+        </h1>
+        <div className="h-[3px] w-24 md:w-32 rounded-full bg-gradient-to-r from-[#0d58cc] via-cyan-300 to-emerald-400 "/>
+          <div className="flex gap-5 text-2xl md:text-3xl ">
+            {socials.map(({Icon,label,href})=>(
+              <motion.a href={href} 
+              key={label}
+              aria-level={label}
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={glowVariants}
+              initial="initial"
+              whileHover="hover"
+              whileTap="tap"
+              className="text-gray-300 transition-colors duration-200 inline-flex items-center justify-center"
+              >
+                <Icon/>
+              </motion.a>
+            ))}
+
+          </div>
+          <p className="text-gray-300 italic max-w-xl ">
+            "Success is when preparation meets Opportunity."
+          </p>
+          <p className="text-xs text-gray-400">
+            &copy;{new Date().getFullYear()} Sandip Sah.All rights reserved.
+          </p>
+      </motion.div>
+
+     </footer>
+
+  )
+}
