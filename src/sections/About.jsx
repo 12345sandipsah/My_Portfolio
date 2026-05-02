@@ -6,7 +6,7 @@ export default function About() {
   const stats = [
     { label: "Experience", value: "0+ years" },
     { label: "Specialty", value: "Full Stack" },
-    { label: "Focus", value: "Performance,Functionality & UX" },
+    { label: "Focus", value: "Performance & UX" },
   ];
   const glows = [
     "-top-10 -left-10 w-[360px] h-[360px] opacity-20 blur-[120px]",
