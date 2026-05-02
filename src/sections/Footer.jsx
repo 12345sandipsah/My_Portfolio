@@ -45,7 +45,7 @@ export default function Footer(){
       >
         <h1 className="font-semibold leading-none text-white text-center select-none" 
         style={{
-          fontSize:"clamp(3rem,5vw,14rem)",
+          fontSize:"clamp(2rem,4vw,10rem)",
           letterSpacing:"0.02rem",
           lineHeight:0.9,
           padding:"0,3vw",
